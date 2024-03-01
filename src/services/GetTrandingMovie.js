@@ -35,5 +35,5 @@ export const FeatchFilm = async query => {
     },
   });
   console.log(data);
-  return data;
+  return data.results;
 };
