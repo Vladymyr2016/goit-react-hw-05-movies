@@ -24,7 +24,14 @@ const Movies = () => {
       <ul>
         {movies?.map(movie => (
           <li key={movie.id}>
-            <Link to={`movies/${movie.id.toString()}`}>{movie.title}</Link>
+            <Link to={`movies/${movie.id.toString()}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              />
+              <h2>{movie.title}</h2>
+              <p>overview</p>
+              <p>{movie.overview}</p>
+            </Link>
           </li>
         ))}
       </ul>
