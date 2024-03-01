@@ -1,22 +1,39 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/trending/movie';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'cab39ac6588bb4b72e7fd8c3a37c0650';
 
-const FeatchInfo = async (query, page) => {
-  const { data } = await axios.get('', {
+export const FeatchTrendingDay = async () => {
+  const { data } = await axios.get('trending/movie/day', {
     params: {
-      query,
-      page,
-      key: API_KEY,
-      include_adult: 'adult',
-
-      primary_release_year: '',
-      orientation: 'horizontal',
-      per_page: 12,
+      page: 1,
+      api_key: API_KEY,
     },
   });
+  return data.results;
+};
+
+export const FeatchDetailsFilm = async id => {
+  const { data } = await axios.get(`movie/${id}`, {
+    params: {
+      // query,
+      movie_id: id,
+      page: 1,
+      api_key: API_KEY,
+    },
+  });
+  console.log(data);
   return data;
 };
 
-export default FeatchInfo;
+export const FeatchFilm = async query => {
+  const { data } = await axios.get('search/movie', {
+    params: {
+      query,
+      page: 1,
+      api_key: API_KEY,
+    },
+  });
+  console.log(data);
+  return data;
+};
