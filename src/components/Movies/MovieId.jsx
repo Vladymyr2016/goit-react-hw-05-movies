@@ -5,7 +5,7 @@ import { FeatchDetailsFilm } from 'services/GetTrandingMovie';
 const MovieId = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState();
-  const [error, setError] = useState(error);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     FeatchDetailsFilm(movieId)

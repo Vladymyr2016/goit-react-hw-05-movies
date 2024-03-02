@@ -5,7 +5,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState();
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
   const changeQuery = query => {
@@ -27,6 +27,7 @@ const Movies = () => {
             <Link to={`movies/${movie.id.toString()}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title}
               />
               <h2>{movie.title}</h2>
               <p>overview</p>
