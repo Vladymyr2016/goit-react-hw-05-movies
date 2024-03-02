@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FeatchDetailsFilm } from 'services/GetTrandingMovie';
 
 const MovieId = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState();
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     FeatchDetailsFilm(movieId)
       .then(data => setMovie(data))
-      .catch(error => setError(error));
+      .catch(error => console.log(error));
   }, [movieId]);
 
   console.log(movie);

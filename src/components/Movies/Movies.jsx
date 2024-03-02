@@ -5,7 +5,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState();
-  const [error, setError] = useState(null);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
   const changeQuery = query => {
@@ -15,7 +15,7 @@ const Movies = () => {
   useEffect(() => {
     FeatchFilm(query)
       .then(data => setMovies(data))
-      .catch(error => setError(error));
+      .catch(error => console.log(error));
   }, [query]);
 
   return (
