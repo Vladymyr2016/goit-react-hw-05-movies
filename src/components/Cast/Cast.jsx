@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { FeatchCredits } from 'services/GetTrandingMovie';
 
 const Cast = () => {
-  const [movie, setMovie] = useState();
+  const { movieId } = useParams();
+  const [cast, setCast] = useState();
   useEffect(() => {
-    FeatchCredits()
-      .then(data => setMovie(data))
+    FeatchCredits(movieId)
+      .then(data => setCast(data))
       .catch(error => console.log(error));
-  }, [setMovie]);
+  }, [movieId]);
 
-  console.log(movie);
+  console.log(cast);
+  //   if (!cast) {
+  //     return <p>Loading cast...</p>;
+  //   }
   return (
     <div>
-      <li>
-        <p>{}</p>
-      </li>
+      <h3>Cast:</h3>
+      <ul>
+        {cast.map(actor => (
+          <li key={actor.id}>
+            <p>{actor.name}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

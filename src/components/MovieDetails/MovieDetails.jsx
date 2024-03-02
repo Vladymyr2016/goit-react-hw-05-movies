@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Cast from 'components/Cast/Cast';
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { FeatchDetailsFilm } from 'services/GetTrandingMovie';
-import Reviews from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -32,9 +30,17 @@ const MovieDetails = () => {
         <p>overview</p>
         <p>{movie.overview}</p>
       </>
-      <Cast movieId={movieId} />
-
-      <Reviews movieId={movieId} />
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="cast">Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Outlet />
     </div>
   );
 };
