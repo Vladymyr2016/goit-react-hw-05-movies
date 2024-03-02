@@ -7,7 +7,6 @@ const Home = () => {
   const [movies, setMovies] = useState();
 
   useEffect(() => {
-    console.log(1);
     const fetchData = async () => {
       try {
         const data = await FeatchTrendingDay();
@@ -19,7 +18,6 @@ const Home = () => {
 
     fetchData();
   }, []);
-  console.log(movies);
   return (
     <div>
       <h1>Trending today</h1>

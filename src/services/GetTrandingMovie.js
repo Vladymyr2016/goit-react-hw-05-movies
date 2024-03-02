@@ -22,7 +22,6 @@ export const FeatchDetailsFilm = async id => {
       api_key: API_KEY,
     },
   });
-  console.log(data);
   return data;
 };
 
@@ -32,6 +31,28 @@ export const FeatchFilm = async query => {
       query,
       page: 1,
       api_key: API_KEY,
+    },
+  });
+  return data.results;
+};
+
+export const FeatchCredits = async id => {
+  const { data } = await axios.get(`movie/${id}/credits`, {
+    params: {
+      api_key: API_KEY,
+      movie_id: id,
+    },
+  });
+  console.log(data);
+  return data.results;
+};
+
+export const FeatchReviews = async id => {
+  const { data } = await axios.get(`movie/${id}/reviews`, {
+    params: {
+      page: 1,
+      api_key: API_KEY,
+      movie_id: id,
     },
   });
   console.log(data);

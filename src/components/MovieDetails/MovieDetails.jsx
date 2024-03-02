@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Cast from 'components/Cast/Cast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FeatchDetailsFilm } from 'services/GetTrandingMovie';
+import Reviews from 'components/Reviews/Reviews';
 
-const MovieId = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState();
   const navigate = useNavigate();
@@ -13,8 +15,6 @@ const MovieId = () => {
   }, [movieId]);
 
   console.log(movie);
-
-  //   const { title, overview, poster_path } = movie;
 
   if (!movie) {
     return <p> Loading ...</p>;
@@ -32,8 +32,11 @@ const MovieId = () => {
         <p>overview</p>
         <p>{movie.overview}</p>
       </>
+      <Cast movieId={movieId} />
+
+      <Reviews movieId={movieId} />
     </div>
   );
 };
 
-export default MovieId;
+export default MovieDetails;
