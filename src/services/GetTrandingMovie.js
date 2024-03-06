@@ -44,7 +44,7 @@ export const FeatchCredits = async id => {
     },
   });
   console.log(data);
-  return data.results;
+  return data.cast;
 };
 
 export const FeatchReviews = async id => {
@@ -52,9 +52,8 @@ export const FeatchReviews = async id => {
     params: {
       page: 1,
       api_key: API_KEY,
-      movie_id: id,
     },
   });
   console.log(data);
-  return data.results;
+  return data;
 };

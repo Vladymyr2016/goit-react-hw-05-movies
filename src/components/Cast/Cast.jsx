@@ -7,25 +7,34 @@ const Cast = () => {
   const [cast, setCast] = useState();
   useEffect(() => {
     FeatchCredits(movieId)
-      .then(data => setCast(data))
+      .then(data => {
+        console.log(data);
+        return setCast(data);
+      })
       .catch(error => console.log(error));
   }, [movieId]);
 
   console.log(cast);
-  //   if (!cast) {
-  //     return <p>Loading cast...</p>;
-  //   }
+
   return (
-    <div>
-      <h3>Cast:</h3>
-      <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            <p>{actor.name}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <>
+        {cast ? (
+          <div>
+            <h3>Cast: {cast.title}</h3>
+            <ul>
+              {cast.map(actor => (
+                <li key={actor.id}>
+                  <p>{actor.name}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>Loading ... </p>
+        )}
+      </>
+    </>
   );
 };
 
