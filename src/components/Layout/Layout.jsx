@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => {
@@ -14,7 +14,9 @@ const Layout = () => {
           </li>
         </ul>
       </header>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
