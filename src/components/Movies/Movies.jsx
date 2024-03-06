@@ -20,7 +20,20 @@ const Movies = () => {
   return (
     <div>
       <Form changeQuery={changeQuery} />
-      <ul>
+
+      {movies ? (
+        <ul>
+          {movies.map(movie => (
+            <li key={movie.id}>
+              <Link to={`${movie.id.toString()}`}>{movie.title}</Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading...</p>
+      )}
+
+      {/* <ul>
         {movies?.map(movie => (
           <li key={movie.id}>
             <Link to={`movies/${movie.id.toString()}`}>
@@ -34,7 +47,7 @@ const Movies = () => {
             </Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };

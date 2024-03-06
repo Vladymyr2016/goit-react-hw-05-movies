@@ -19,7 +19,7 @@ const MovieDetails = () => {
   }
   return (
     <div>
-      <button onClick={() => navigate('/movies')}>Go back</button>
+      <button onClick={() => navigate('/')}>Go back</button>
 
       <>
         <img
