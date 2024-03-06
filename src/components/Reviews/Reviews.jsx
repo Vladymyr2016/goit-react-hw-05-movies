@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { FeatchReviews } from 'services/GetTrandingMovie';
 
-const Reviews = ({ movieId }) => {
+const Reviews = () => {
+  const { movieId } = useParams();
   const [movies, setMovie] = useState([]);
   useEffect(() => {
     FeatchReviews(movieId)
-      .then(data => setMovie(data))
+      .then(data => setMovie(data.results))
       .catch(error => console.log(error));
   }, [movieId]);
   console.log(movies);
@@ -14,7 +16,8 @@ const Reviews = ({ movieId }) => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <p>{movie.title}</p>
+            <p>{movie.author}</p>
+            <p>{movie.content}</p>
           </li>
         ))}
       </ul>

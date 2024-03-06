@@ -51,6 +51,7 @@ export const FeatchReviews = async id => {
   const { data } = await axios.get(`movie/${id}/reviews`, {
     params: {
       page: 1,
+      language: 'en-US',
       api_key: API_KEY,
     },
   });
