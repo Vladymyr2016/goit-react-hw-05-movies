@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { FeatchDetailsFilm } from 'services/GetTrandingMovie';
+import s from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -18,18 +19,23 @@ const MovieDetails = () => {
     return <p> Loading ...</p>;
   }
   return (
-    <div>
-      <button onClick={() => navigate('/')}>Go back</button>
-
-      <>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          alt={movie.title}
-        />
+    <div className={s.container}>
+      <div className={s.image}>
+        <>
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </>
+        <button className={s.btn} onClick={() => navigate('/')}>
+          Go back
+        </button>
+      </div>
+      <div>
         <h2>{movie.title}</h2>
         <p>overview</p>
         <p>{movie.overview}</p>
-      </>
+      </div>
       <nav>
         <ul>
           <li>

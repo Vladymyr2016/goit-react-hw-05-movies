@@ -32,22 +32,6 @@ const Movies = () => {
       ) : (
         <p>Loading...</p>
       )}
-
-      {/* <ul>
-        {movies?.map(movie => (
-          <li key={movie.id}>
-            <Link to={`movies/${movie.id.toString()}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <h2>{movie.title}</h2>
-              <p>overview</p>
-              <p>{movie.overview}</p>
-            </Link>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };
