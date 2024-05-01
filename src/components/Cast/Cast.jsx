@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FeatchCredits } from 'services/GetTrandingMovie';
+import s from './Cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -20,12 +21,13 @@ const Cast = () => {
     <>
       <>
         {cast ? (
-          <div>
+          <div className={s.container}>
             <h3>Cast: {cast.title}</h3>
-            <ul>
+            <ul className={s.items}>
               {cast.map(actor => (
-                <li key={actor.id}>
+                <li className={s.item} key={actor.id}>
                   <img
+                    className={s.img}
                     src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
                     alt="actor"
                   />

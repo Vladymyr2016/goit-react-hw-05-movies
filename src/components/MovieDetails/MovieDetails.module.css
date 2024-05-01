@@ -1,18 +1,48 @@
 .container {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: 20px;
+    padding: 15px;
 }
 
 .image {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+}
+
+.img {
+    border-radius: 25px;
+
 }
 
 .btn {
     width: 100px;
     margin: 0 auto;
     border-radius: 10px;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.item a {
+    text-decoration: none;
+}
+
+.cast {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
 
 }
