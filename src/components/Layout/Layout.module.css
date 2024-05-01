@@ -1,0 +1,13 @@
+.items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.item a {
+    text-decoration: none;
+}
