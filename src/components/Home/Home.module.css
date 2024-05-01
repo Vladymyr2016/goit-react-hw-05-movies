@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: o auto;
+    align-items: center;
+    text-align: center;
+}
+
+.title {}
+
+.items {
+    text-decoration: none;
+    list-style-type: none;
+
+}
+
+.item {
+    color: white;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

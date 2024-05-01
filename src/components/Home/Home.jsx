@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FeatchTrendingDay } from 'services/GetTrandingMovie';
 // import FeatchTrendingDay from '../../services/GetTrandingMovie.js';
 import { Link } from 'react-router-dom';
+import s from './Home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState();
@@ -19,13 +20,13 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-    <div>
-      <h1>Trending today</h1>
+    <div className={s.container}>
+      <h1 className={s.title}>Trending today</h1>
 
       {movies ? (
-        <ul>
+        <ul className={s.items}>
           {movies.map(movie => (
-            <li key={movie.id}>
+            <li className={s.item} key={movie.id}>
               <Link to={`movies/${movie.id.toString()}`}>{movie.title}</Link>
             </li>
           ))}
